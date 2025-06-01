@@ -1,0 +1,8 @@
+.feedback-text{
+    width: "100%",
+    padding: "10px",
+    fontSize: "16px",
+    border: "5px solid #ccc",
+    borderRadius: "8px",
+    resize: "vertical",
+}
