@@ -18,7 +18,8 @@ axiosInstance.interceptors.request.use((config)=>{
 })
 
 const userData = JSON.parse(localStorage.getItem("user") || "{}");
-const userId = userData.id;
+const userId = JSON.parse(userData).id;
+console.log("asdads"+typeof(userId))
 
 export const SignUp = (userData)=>{
  return axiosInstance.post(`user/register`,userData);
