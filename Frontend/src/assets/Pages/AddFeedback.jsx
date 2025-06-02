@@ -20,8 +20,10 @@ const AddFeedback = () => {
     };
 
     try {
-      console.log(userId + " ididididi");
-      const response = await addUserFeedback(feedbackData);
+      const userData = JSON.parse(localStorage.getItem("user") || "{}");
+      const userId = userData.id;
+      // console.log(userId + " ididididi");
+      const response = await addUserFeedback(feedbackData, userId);
 
       if (response.data.success === true) {
         toast.success("Successfully Feedback is added");

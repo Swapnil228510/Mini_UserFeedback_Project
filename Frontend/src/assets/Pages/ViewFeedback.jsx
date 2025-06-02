@@ -18,7 +18,9 @@ const ViewFeedback = () => {
 
   const fetchFeedback = async () => {
     try {
-      const response = await getUserFeedback();
+      const userData = JSON.parse(localStorage.getItem("user") || "{}");
+      const userId = userData.id;
+      const response = await getUserFeedback(userId);
       setFeednackList(response.data);
     } catch (err) {
       console.error(err);

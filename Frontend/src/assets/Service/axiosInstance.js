@@ -17,9 +17,9 @@ axiosInstance.interceptors.request.use((config)=>{
     return config;
 })
 
-const userData = JSON.parse(localStorage.getItem("user") || "{}");
-const userId = JSON.parse(userData).id;
-console.log("asdads"+typeof(userId))
+// const userData = JSON.parse(localStorage.getItem("user") || "{}");
+// const userId = userData.id;
+// console.log("asdads"+typeof(userId))
 
 export const SignUp = (userData)=>{
  return axiosInstance.post(`user/register`,userData);
@@ -29,11 +29,11 @@ export const logIn = (logInData)=>{
     return axiosInstance.post(`auth/signIn`,logInData);
 }
 
-export const addUserFeedback = (feedback)=>{
+export const addUserFeedback = (feedback,userId)=>{
     return axiosInstance.post(`feedback/add/${userId}`,feedback);
 }
 
-export const getUserFeedback = ()=>{
+export const getUserFeedback = (userId)=>{
     return axiosInstance.get(`feedback/${userId}`);
 }
 
